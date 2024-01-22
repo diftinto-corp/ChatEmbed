@@ -50,17 +50,17 @@ export const Badge = (props: Props) => {
         'background-color': props.badgeBackgroundColor ?? '#ffffff',
       }}
     >
-      Powered by
+      Desarrollado por
       <a
         ref={liteBadge}
-        href={'https://flowiseai.com'}
+        href={'https://neuronai.com'}
         target="_blank"
         rel="noopener noreferrer"
         class="lite-badge"
         id="lite-badge"
         style={{ 'font-weight': 'bold', color: props.poweredByTextColor ?? defaultTextColor }}
       >
-        <span> Flowise</span>
+        <span> NeuronAI</span>
       </a>
     </span>
   );
