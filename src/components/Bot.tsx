@@ -521,7 +521,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                 class="my-2 ml-2"
                 on:click={clearChat}
               >
-                <span style={{ 'font-family': 'Poppins, sans-serif' }}>Clear</span>
+                <span style={{ 'font-family': 'Poppins, sans-serif' }}>Limpiar chat</span>
               </DeleteButton>
             </div>
           ) : null}

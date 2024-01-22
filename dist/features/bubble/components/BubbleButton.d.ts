@@ -1,5 +1,5 @@
-import { ButtonTheme } from '../types';
-type Props = ButtonTheme & {
+import { ButtonTheme, ChatWindowTheme } from '../types';
+type Props = ButtonTheme & ChatWindowTheme & {
     isBotOpened: boolean;
     toggleBot: () => void;
 };

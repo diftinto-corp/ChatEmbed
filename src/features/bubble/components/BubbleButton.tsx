@@ -1,33 +1,43 @@
 import { Show } from 'solid-js';
 import { isNotDefined } from '@/utils/index';
-import { ButtonTheme } from '../types';
+import { ButtonTheme, ChatWindowTheme } from '../types';
 
-type Props = ButtonTheme & {
+type Props = ButtonTheme & ChatWindowTheme & {
   isBotOpened: boolean;
   toggleBot: () => void;
 };
 
-const defaultButtonColor = '#3B81F6';
+const defaultButtonColor = '#000000';
 const defaultIconColor = 'white';
 const defaultBottom = '20';
 const defaultRight = '20';
 
 export const BubbleButton = (props: Props) => {
   return (
-    <button
-      part="button"
-      onClick={() => props.toggleBot()}
-      class={
-        `fixed shadow-md rounded-full hover:scale-110 active:scale-95 transition-transform duration-200 flex justify-center items-center animate-fade-in` +
-        (props.size === 'large' ? ' w-16 h-16' : ' w-12 h-12')
-      }
-      style={{
-        'background-color': props.backgroundColor ?? defaultButtonColor,
-        'z-index': 42424242,
-        right: props.right ? `${props.right.toString()}px` : `${defaultRight}px`,
-        bottom: props.bottom ? `${props.bottom.toString()}px` : `${defaultBottom}px`,
+    <div class={
+            `fixed hover:scale-110 active:scale-95 transition-transform duration-200 flex justify-center items-center animate-fade-in w-80 h-32 cursor-pointer`
+          } style={{
+            right: props.right ? `${props.right.toString()}px` : `${defaultRight}px`,
+            bottom: props.bottom ? `${props.bottom.toString()}px` : `${defaultBottom}px`,
       }}
+    onClick={() => props.toggleBot()}
     >
+        <div class={
+          (props.isBotOpened ? 'hidden' : 'md:flex justify-center items-center absolute top-4 left-5 shadow-md rounded-t-md rounded-bl-md animate-fade-in text-white w-64 mr-2 p-2 sm: hidden')
+        } style={{
+          'background-color': props.backgroundColor ?? defaultButtonColor,
+          'font-family': 'Poppins, sans-serif'
+        }} >{ props.welcomeMessage }</div>
+          <button
+          part="button"
+          class={
+            `absolute bottom-0 right-0 shadow-md rounded-full flex justify-center items-center animate-fade-in` +
+            (props.size === 'large' ? ' w-16 h-16' : ' w-12 h-12')
+          }
+          style={{
+            'background-color': props.backgroundColor ?? defaultButtonColor
+          }}
+        >
       <Show when={isNotDefined(props.customIconSrc)} keyed>
         <svg
           viewBox="0 0 24 24"
@@ -70,6 +80,8 @@ export const BubbleButton = (props: Props) => {
           d="M18.601 8.39897C18.269 8.06702 17.7309 8.06702 17.3989 8.39897L12 13.7979L6.60099 8.39897C6.26904 8.06702 5.73086 8.06702 5.39891 8.39897C5.06696 8.73091 5.06696 9.2691 5.39891 9.60105L11.3989 15.601C11.7309 15.933 12.269 15.933 12.601 15.601L18.601 9.60105C18.9329 9.2691 18.9329 8.73091 18.601 8.39897Z"
         />
       </svg>
-    </button>
+          </button>
+    </div>
+    
   );
 };
