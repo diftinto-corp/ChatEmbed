@@ -24,6 +24,7 @@ export const BubbleButton = (props: Props) => {
       onClick={() => props.toggleBot()}
     >
       <div
+        part="container-button"
         class={
           props.isBotOpened
             ? 'hidden'
