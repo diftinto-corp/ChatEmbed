@@ -7,16 +7,16 @@
 </head>
 <body style="margin: 0">
         <script type="module">
-        import Chatbot from "./dist/web.js"
+        import Chatbot from "/dist/web.js"
         Chatbot.init({
             chatflowid: "e9adf065-57b8-4184-a405-ca9f0c03644a",
             apiHost: "https://flowise-dev.diftinto.com",
             chatflowConfig: {
-                pineconeNamespace: "neuronai_L8LvORfWKGTbIh3ruEUA"
+                pineconeNamespace: `neuronai_L8LvORfWKGTbIh3ruEUA`
             },
             theme: {
                 button: {
-                    backgroundColor: "#000000",
+                    backgroundColor: `#e75ef8`,
                     right: 20,
                     bottom: 20,
                     size: "medium",
@@ -51,5 +51,6 @@
             }
         })
     </script>
+
 </body>
 </html>
