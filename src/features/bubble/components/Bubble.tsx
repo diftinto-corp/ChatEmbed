@@ -31,7 +31,12 @@ export const Bubble = (props: BubbleProps) => {
   return (
     <>
       <style>{styles}</style>
-      <BubbleButton {...bubbleProps.theme?.button} welcomeMessage= {bubbleProps.theme?.chatWindow?.welcomeMessage} toggleBot={toggleBot} isBotOpened={isBotOpened()} />
+      <BubbleButton
+        {...bubbleProps.theme?.button}
+        welcomeMessage={bubbleProps.theme?.chatWindow?.welcomeMessage}
+        toggleBot={toggleBot}
+        isBotOpened={isBotOpened()}
+      />
       <div
         part="bot"
         style={{
